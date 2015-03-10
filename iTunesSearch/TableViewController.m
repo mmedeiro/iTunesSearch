@@ -20,18 +20,20 @@
 @implementation TableViewController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _tableview.delegate=self;
+    _tableview.dataSource=self;
     
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias:@"Apple"];
+//    iTunesManager *itunes = [iTunesManager sharedInstance];
+//    midias = [itunes buscarMidias:@"Apple"];
     
-#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
+//#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
+    //self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,4 +70,9 @@
 }
 
 
+- (IBAction)buttonSearch:(id)sender {
+    iTunesManager *itunes =[iTunesManager sharedInstance];
+    midias = [itunes buscarMidias:_textBusca.text];
+    [self.tableview reloadData]; 
+}
 @end
