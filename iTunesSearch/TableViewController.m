@@ -56,6 +56,9 @@
     
     [celula.nome setText:filme.nome];
     [celula.tipo setText:@"Filme"];
+    [celula.genero setText:filme.genero];
+    [celula.pais setText:filme.pais];
+    [celula.price setText:[NSString stringWithFormat:@"U$$ %@", filme.price]];
     
     return celula;
 }
