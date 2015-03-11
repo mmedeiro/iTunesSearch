@@ -10,6 +10,9 @@
 #import "TableViewCell.h"
 #import "iTunesManager.h"
 #import "Entidades/Filme.h"
+#import "Entidades/Musica.h"
+#import "Entidades/Podcast.h"
+#import "Entidades/Ebook.h"
 
 @interface TableViewController () {
     NSArray *midias;
@@ -44,26 +47,94 @@
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [midias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+    return [[midias objectAtIndex:section]count];
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    switch (section) {
+            case 0:
+            return @"filmes";
+            break;
+            case 1:
+            return @"musicas";
+            break;
+            case 2:
+            return @"podcasts";
+            break;
+            case 3:
+            return @"ebooks";
+            break;
+            default:
+            return nil;
+            break;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme = [midias objectAtIndex:indexPath.row];
+    Filme *filme;
+    Musica *musica;
+    Podcast *podcast;
+    Ebook *ebook;
     
-    [celula.nome setText:filme.nome];
-    [celula.tipo setText:@"Filme"];
-    [celula.genero setText:filme.genero];
-    [celula.pais setText:filme.pais];
-    [celula.price setText:[NSString stringWithFormat:@"U$$ %@", filme.price]];
-    
-    return celula;
-}
+    switch (indexPath.section) {
+        case 0:
+          filme = [midias objectAtIndex:indexPath.row];
+            
+            [celula.nome setText:filme.nome];
+            [celula.tipo setText:@"Filme"];
+            [celula.genero setText:filme.genero];
+            [celula.pais setText:filme.pais];
+            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", filme.price]];
+            return celula;
+            
+            break;
+            
+            case 1:
+            musica = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:musica.nome];
+            [celula.tipo setText:@"Musica"];
+            [celula.genero setText:musica.genero];
+            [celula.pais setText:musica.pais];
+            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", musica.price]];
+            
+            return celula;
+            break;
+            
+            case 2:
+            musica = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:musica.nome];
+            [celula.tipo setText:@"Musica"];
+            [celula.genero setText:musica.genero];
+            [celula.pais setText:musica.pais];
+            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", musica.price]];
+            
+            return celula;
+            break;
+            
+            case 3:
+            podcast = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:podcast.nome];
+            [celula.tipo setText:@"Podcast"];
+            [celula.genero setText:podcast.genero];
+            [celula.pais setText:podcast.pais];
+            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", podcast.price]];
+            
+            return celula;
+            
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+   
+    }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
