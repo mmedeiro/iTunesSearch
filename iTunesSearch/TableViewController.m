@@ -33,7 +33,7 @@
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
 //    iTunesManager *itunes = [iTunesManager sharedInstance];
-//    midias = [itunes buscarMidias:@"Apple"];
+//    midias = [itunes buscarMidias:@"all"];
     
 //#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
     //self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
@@ -107,23 +107,23 @@
             break;
             
             case 2:
-            musica = [midias objectAtIndex:indexPath.row];
-            [celula.nome setText:musica.nome];
-            [celula.tipo setText:@"Musica"];
-            [celula.genero setText:musica.genero];
-            [celula.pais setText:musica.pais];
-            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", musica.price]];
-            
-            return celula;
-            break;
-            
-            case 3:
             podcast = [midias objectAtIndex:indexPath.row];
             [celula.nome setText:podcast.nome];
             [celula.tipo setText:@"Podcast"];
             [celula.genero setText:podcast.genero];
             [celula.pais setText:podcast.pais];
             [celula.price setText:[NSString stringWithFormat:@"U$$ %@", podcast.price]];
+            
+            return celula;
+            break;
+            
+            case 3:
+            ebook = [midias objectAtIndex:indexPath.row];
+            [celula.nome setText:ebook.nome];
+            [celula.tipo setText:@"Ebook"];
+            [celula.genero setText:ebook.genero];
+            [celula.pais setText:ebook.pais];
+            [celula.price setText:[NSString stringWithFormat:@"U$$ %@", ebook.price]];
             
             return celula;
             

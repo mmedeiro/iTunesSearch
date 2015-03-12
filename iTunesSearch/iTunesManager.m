@@ -98,7 +98,7 @@ static bool isFirstAccess = YES;
         
         
         if ([[item objectForKey:@"kind"]isEqualToString:@"ebook"]) {
-            Ebook *ebook = [[Podcast alloc]init];
+            Ebook *ebook = [[Ebook alloc]init];
             [ebook setNome:[item objectForKey:@"trackName"]];
 //            [ebook setGenero:[item objectForKey:@"primaryGenreName"]];
 //            [ebook setPais:[item objectForKey:@"country"]];

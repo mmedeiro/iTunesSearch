@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Filme.h"
 
-@interface Podcast : NSObject
+@interface Podcast : Filme
 
-@property (nonatomic, strong) NSString *nome;
-@property (nonatomic, strong) NSString *duracao;
-@property (nonatomic, strong) NSString *genero;
-@property (nonatomic, strong) NSString *pais;
-@property (nonatomic, strong) NSString *price;
 
 @end
