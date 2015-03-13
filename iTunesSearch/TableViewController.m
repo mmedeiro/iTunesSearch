@@ -13,6 +13,7 @@
 #import "Entidades/Musica.h"
 #import "Entidades/Podcast.h"
 #import "Entidades/Ebook.h"
+#import "Detalhescel.h"
 
 @interface TableViewController () {
     NSArray *midias;
@@ -31,6 +32,8 @@
     
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
+    
+    _tableview.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
     
 //    iTunesManager *itunes = [iTunesManager sharedInstance];
 //    midias = [itunes buscarMidias:@"all"];
@@ -77,14 +80,14 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme;
-    Musica *musica;
-    Podcast *podcast;
-    Ebook *ebook;
+    Filme *filme = [[Filme alloc]init];
+    Musica *musica = [[Musica alloc]init];
+    Podcast *podcast = [[Podcast alloc]init];
+    Ebook *ebook = [[Ebook alloc]init];
     
     switch (indexPath.section) {
         case 0:
-          filme = [midias objectAtIndex:indexPath.row];
+          filme = [[midias objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             
             [celula.nome setText:filme.nome];
             [celula.tipo setText:@"Filme"];
@@ -96,8 +99,7 @@
             break;
             
             case 1:
-            musica = [midias objectAtIndex:indexPath.row];
-            [celula.nome setText:musica.nome];
+            musica = [[midias objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];                 [celula.nome setText:musica.nome];
             [celula.tipo setText:@"Musica"];
             [celula.genero setText:musica.genero];
             [celula.pais setText:musica.pais];
@@ -107,7 +109,7 @@
             break;
             
             case 2:
-            podcast = [midias objectAtIndex:indexPath.row];
+            podcast = [[midias objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             [celula.nome setText:podcast.nome];
             [celula.tipo setText:@"Podcast"];
             [celula.genero setText:podcast.genero];
@@ -118,7 +120,7 @@
             break;
             
             case 3:
-            ebook = [midias objectAtIndex:indexPath.row];
+            ebook = [[midias objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             [celula.nome setText:ebook.nome];
             [celula.tipo setText:@"Ebook"];
             [celula.genero setText:ebook.genero];
@@ -140,6 +142,13 @@
     return 70;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Detalhescel *det = [[Detalhescel alloc]init];
+    det.row = [indexPath row];
+    det.section = [indexPath section];
+    [[self navigationController]pushViewController:det animated:YES];
+}
 
 - (IBAction)buttonSearch:(id)sender {
     iTunesManager *itunes =[iTunesManager sharedInstance];

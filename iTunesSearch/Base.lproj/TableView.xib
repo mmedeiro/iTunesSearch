@@ -17,19 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-wc-b61">
-                    <rect key="frame" x="0.0" y="84" width="600" height="516"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-wc-b61">
+                    <rect key="frame" x="0.0" y="73" width="600" height="527"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KOW-Cb-mk5">
-                    <rect key="frame" x="8" y="31" width="445" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KOW-Cb-mk5">
+                    <rect key="frame" x="8" y="20" width="445" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L81-Yn-Hb9">
                     <rect key="frame" x="461" y="31" width="131" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="48" id="IeQ-Xh-6Yu"/>
+                        <constraint firstAttribute="width" constant="55" id="IeQ-Xh-6Yu"/>
                     </constraints>
                     <state key="normal" title="Search">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,15 +41,18 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="L81-Yn-Hb9" firstAttribute="top" secondItem="HfX-dB-CZD" secondAttribute="top" constant="100" id="19i-mu-hDR"/>
                 <constraint firstItem="KOW-Cb-mk5" firstAttribute="leading" secondItem="HfX-dB-CZD" secondAttribute="leading" constant="70" id="1Ln-EQ-REF"/>
                 <constraint firstItem="KOW-Cb-mk5" firstAttribute="leading" secondItem="HfX-dB-CZD" secondAttribute="leading" id="40X-FL-Bxa"/>
                 <constraint firstItem="L81-Yn-Hb9" firstAttribute="trailing" secondItem="HfX-dB-CZD" secondAttribute="trailingMargin" id="90e-mn-OwC"/>
                 <constraint firstItem="E5w-wc-b61" firstAttribute="top" secondItem="L81-Yn-Hb9" secondAttribute="bottom" constant="23" id="9mX-ja-Gl5"/>
+                <constraint firstItem="KOW-Cb-mk5" firstAttribute="top" secondItem="HfX-dB-CZD" secondAttribute="top" constant="100" id="CkP-v4-x9U"/>
+                <constraint firstItem="L81-Yn-Hb9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HfX-dB-CZD" secondAttribute="top" constant="100" id="H86-cl-V1T"/>
                 <constraint firstAttribute="bottom" secondItem="E5w-wc-b61" secondAttribute="bottom" id="Q4D-Ti-x9i"/>
-                <constraint firstItem="L81-Yn-Hb9" firstAttribute="leading" secondItem="KOW-Cb-mk5" secondAttribute="trailing" constant="91" id="QbH-o7-0O7"/>
+                <constraint firstItem="L81-Yn-Hb9" firstAttribute="leading" secondItem="KOW-Cb-mk5" secondAttribute="trailing" constant="10" id="QbH-o7-0O7"/>
                 <constraint firstItem="E5w-wc-b61" firstAttribute="leading" secondItem="HfX-dB-CZD" secondAttribute="leading" id="RBJ-Y3-D8W"/>
                 <constraint firstAttribute="centerY" secondItem="L81-Yn-Hb9" secondAttribute="centerY" id="Uf7-O2-woI"/>
-                <constraint firstItem="L81-Yn-Hb9" firstAttribute="top" secondItem="HfX-dB-CZD" secondAttribute="top" constant="31" id="YXf-XS-4KK"/>
+                <constraint firstItem="L81-Yn-Hb9" firstAttribute="top" secondItem="HfX-dB-CZD" secondAttribute="top" constant="20" symbolic="YES" id="YXf-XS-4KK"/>
                 <constraint firstItem="KOW-Cb-mk5" firstAttribute="top" secondItem="L81-Yn-Hb9" secondAttribute="top" id="mWw-zJ-DNS"/>
                 <constraint firstItem="L81-Yn-Hb9" firstAttribute="top" secondItem="HfX-dB-CZD" secondAttribute="top" id="r7E-Hh-ZEm"/>
                 <constraint firstItem="KOW-Cb-mk5" firstAttribute="leading" secondItem="HfX-dB-CZD" secondAttribute="leadingMargin" id="xEt-Sf-4y5"/>
@@ -59,7 +62,10 @@
                 <mask key="constraints">
                     <exclude reference="1Ln-EQ-REF"/>
                     <exclude reference="40X-FL-Bxa"/>
+                    <exclude reference="mWw-zJ-DNS"/>
+                    <exclude reference="H86-cl-V1T"/>
                     <exclude reference="Uf7-O2-woI"/>
+                    <exclude reference="YXf-XS-4KK"/>
                     <exclude reference="r7E-Hh-ZEm"/>
                 </mask>
             </variation>

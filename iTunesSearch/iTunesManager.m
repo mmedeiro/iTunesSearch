@@ -76,10 +76,10 @@ static bool isFirstAccess = YES;
         if ([[item objectForKey:@"kind"]isEqualToString:@"song"]) {
             Musica *musica = [[Musica alloc]init];
             [musica setNome:[item objectForKey:@"trackName"]];
-//            [musica setDuracao:[item objectForKey:@"trackTimeMillis"]];
-//            [musica setGenero:[item objectForKey:@"primaryGenreName"]];
-//            [musica setPais:[item objectForKey:@"country"]];
-//            [musica setPrice:[item objectForKey:@"trackPrice"]];
+            [musica setDuracao:[item objectForKey:@"trackTimeMillis"]];
+            [musica setGenero:[item objectForKey:@"primaryGenreName"]];
+            [musica setPais:[item objectForKey:@"country"]];
+            [musica setPrice:[item objectForKey:@"trackPrice"]];
             [musicas addObject:musica];
         }
         
@@ -87,11 +87,11 @@ static bool isFirstAccess = YES;
         if ([[item objectForKey:@"kind"]isEqualToString:@"podcast"]) {
             Podcast *podcast = [[Podcast alloc]init];
             [podcast setNome:[item objectForKey:@"trackName"]];
-//            [podcast setDuracao:[item objectForKey:@"trackTimeMillis"]];
-//            [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
-//            [podcast setPais:[item objectForKey:@"country"]];
-//            [podcast setPrice:[item objectForKey:@"trackPrice"]];
-//            [podcasts addObject:podcast];
+            [podcast setDuracao:[item objectForKey:@"trackTimeMillis"]];
+            [podcast setGenero:[item objectForKey:@"primaryGenreName"]];
+            [podcast setPais:[item objectForKey:@"country"]];
+            [podcast setPrice:[item objectForKey:@"trackPrice"]];
+            [podcasts addObject:podcast];
             }
         
         
@@ -100,20 +100,20 @@ static bool isFirstAccess = YES;
         if ([[item objectForKey:@"kind"]isEqualToString:@"ebook"]) {
             Ebook *ebook = [[Ebook alloc]init];
             [ebook setNome:[item objectForKey:@"trackName"]];
-//            [ebook setGenero:[item objectForKey:@"primaryGenreName"]];
-//            [ebook setPais:[item objectForKey:@"country"]];
-//            [ebook setPrice:[item objectForKey:@"trackPrice"]];
-//            [ebooks addObject:ebook];
+            [ebook setGenero:[item objectForKey:@"primaryGenreName"]];
+            [ebook setPais:[item objectForKey:@"country"]];
+            [ebook setPrice:[item objectForKey:@"trackPrice"]];
+            [ebooks addObject:ebook];
         }
-        [all addObject:filmes];
-        [all addObject:musicas];
-        [all addObject:podcasts];
-        [all addObject:ebooks];
+//        [all addObject:filmes];
+//        [all addObject:musicas];
+//        [all addObject:podcasts];
+//        [all addObject:ebooks];
     }
-    return nil;
-
+        all = [[NSMutableArray alloc]initWithObjects:filmes, musicas, podcasts, ebooks, nil];
+        return all;
+    
 }
-
 
 
 
